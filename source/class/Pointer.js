@@ -29,7 +29,7 @@
 			});
 		},
 */
-		tap: function (element, startCb, c, d) {
+		tap: function (element, startCb, endCb, cancelCb) {
 			var self =		this,
 				target =	null,
 
@@ -39,7 +39,7 @@
 				nY =		0,
 
 				distance = savvy.Platform.touch ? 60 : 30,
-				p = !0,
+				onTarget = true,
 
 				startFn = function (evt) {
 					evt = self.normalize(evt),
@@ -48,7 +48,7 @@
 
 					if (startCb) {
 						startCb(evt);
-						p = true;
+						onTarget = true;
 						target = evt.target;
 
 						document.body.addEventListener(savvy.Platform.pointer_move, moveFn);
@@ -70,7 +70,8 @@
 					nX = evt.pointerX,
 					nY = evt.pointerY,
 
-					p = Math.abs(nX - sX) < distance && Math.abs(nY - sY) < distance ? true : false,
+					onTarget = (Math.abs(nX - sX) < distance && 
+								Math.abs(nY - sY) < distance) ? true : false,
 
 					evt.preventDefault();
 
@@ -79,11 +80,13 @@
 
 				endFn = function (evt) {
 					evt = self.normalize(evt),
-					evt.target === target && p && !element.__held ? c && c(evt) : d && d(evt),
+					(evt.target === target && onTarget) ? 
+									endCb && endCb(evt) : 
+									cancelCb && cancelCb(evt);
 
-					document.body.removeEventListener(savvy.Platform.pointer_move, moveFn),
-					document.body.removeEventListener(savvy.Platform.pointer_end, endFn),
-					document.body.removeEventListener("touchcancel", endFn),
+					document.body.removeEventListener(savvy.Platform.pointer_move, moveFn);
+					document.body.removeEventListener(savvy.Platform.pointer_end, endFn);
+					document.body.removeEventListener("touchcancel", endFn);
 
 					savvy.Dom.removeClass(element, 'tapped');
 

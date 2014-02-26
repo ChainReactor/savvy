@@ -1,0 +1,73 @@
+.savvy-overlay {
+	bottom: 0;
+	height: 100%;
+	left: 0;
+	opacity: 0;
+	pointer-events: all;
+	position: absolute;
+	text-align: center;
+	right: 0;
+	top: 0;
+	width: 100%;
+	z-index: 5000;
+
+	.savvy-dialog {
+		background: #EEE;
+		box-shadow: 0 @remSize * 0.5 0 #333;
+		display: inline-block;
+		max-height: 90%;
+		max-width: 90%;
+		margin: 0 auto;
+		position: relative;
+		text-align: center;
+		vertical-align: middle;
+	}
+
+	.savvy-dialog_title {
+		font-size: 200%;
+		font-weight: 700;
+		margin: 2.5% 0 0 0;
+	}
+
+	.savvy-dialog_content {
+		color: #333;
+		font-size: 150%;
+		margin: 2.5% 0;
+	}
+
+	.savvy-dialog_buttons {
+		line-height: 300%;
+		margin: 0 0 2.5% 0;
+
+		.savvy-button {
+			margin: 0 1.25%;
+		}
+	}
+
+	.savvy-button.close {
+		background: #F00;
+		border-radius: 50%;
+		padding: 0;
+		padding-bottom: 10%;
+		position: absolute;
+		right: -5%;
+		top: -10%;
+		width: 10%;
+	}
+
+	&.fade {
+		background: rgba(0,0,0,0.75);
+	}
+
+	//Used for Centering
+	&:before {
+		content: '';
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+	}
+
+	&.show {
+		opacity: 1;
+	}
+}

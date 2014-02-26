@@ -1,0 +1,43 @@
+.savvy-button {
+	color: #FFF;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 150%;
+	font-weight: 700;
+	line-height: 250%;
+	margin: 0;
+	padding: 0 2.5%;
+	text-align: center;
+	text-shadow: 0 @remSize * 0.1 @remSize * 0.1 #333;
+	transform: translate3d(0, 0, 0);
+	vertical-align: middle;
+
+	&.default {
+		background-color: #666;
+	}
+
+	&.confirm {
+		background-color: #0F0;
+	}
+
+	&.cancel {
+		background-color: #F00;
+	}
+
+	&.tapped {
+		transform: translate3d(0, @remSize * 0.5, 0);
+
+		&.default {
+			background-color: darken(#666, 15%);
+		}
+
+		&.confirm {
+			background-color: darken(#0F0, 15%);
+		}
+
+		&.cancel {
+			background-color: darken(#F00, 15%);
+		}
+	}
+
+}
