@@ -7,7 +7,7 @@
 		create: function (settings) {
 			var self = this;
 
-			var id = 'dialog_' + __count;
+			var id = settings.id || 'dialog_' + __count;
 
 			var parent = settings.parentNode ? settings.parentNode : document.body;
 
@@ -109,6 +109,10 @@
 			__dialogs[id] = overlay;
 
 			__count ++;
+		},
+
+		get: function (id) {
+			return __dialogs[id];
 		},
 
 		destroy: function (id, cb) {
