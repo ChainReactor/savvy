@@ -147,6 +147,7 @@ core.Class("savvy.widget.WidgetView", {
 		createElement: function () {
 			var element = this.__element;
 			var settings = this.__settings;
+
 			if (!element) {
 				if (settings.id) {
 					element = document.getElementById(settings.id);
@@ -177,14 +178,30 @@ core.Class("savvy.widget.WidgetView", {
 			}
 		},
 
-		createChild: function (id, child, parent) {
+		createChild: function (id, className, child, parent) {
 			parent = parent || this.__element;
 
 			var element = null;
+			var tag = null;
+			var clsName;
 
 			if (child) {
 
-				element = child.appendChild ? child : savvy.Dom[child.tag || 'div']({className: child.className, parentNode: child.parentNode || parent});
+				element = child.appendChild ? child : null;
+
+				if (!element) {
+					tag = child.tag || 'div';
+					clsName =	(className ? className : '') + 
+								(className && child.className ? ' ' : '') + 
+								(child.className || '');
+
+
+					element = savvy.Dom[tag]({
+						id: id,
+						className: clsName, 
+						parentNode: child.parentNode || parent
+					});
+				}
 
 				if (child.children && !child.appendChild) {
 					this.createChildren(child.children, element);
@@ -201,7 +218,7 @@ core.Class("savvy.widget.WidgetView", {
 
 			for (c in children) {
 				child = children[c];
-				this.createChild(c, child, parent);
+				this.createChild(child.id || null, c, child, parent);
 			}
 		},
 
