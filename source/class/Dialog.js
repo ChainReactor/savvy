@@ -74,9 +74,11 @@
 
 				savvy.Button.create(data);
 			};
+
 			var makeCustomButton = function (data) {
 				savvy.Button.create(data);
 			};
+
 			var buttonContainer = null;
 			if (settings.buttons) {
 				buttonContainer = savvy.Dom.div({className: 'savvy-dialog_buttons', parentNode: dialog});
@@ -113,17 +115,42 @@
 				return;
 			}
 
-
 			savvy.Effects.transistion(overlay, function () {
 				overlay.parentNode ? overlay.parentNode.removeChild(overlay) : null;
 				__dialogs[id] = null;
 			});
 
-			savvy.Dom.removeClass(overlay, 'show');
+			setTimeout(function () {
+				savvy.Dom.removeClass(overlay, 'show');
+			}, 0);
 		}
 	});
 })();
 
 /*
-savvy.Dialog.create({overlay: true, title: 'This is a Dialog Example!', content: 'You can put <b>HTML</b> tags into it and whatever!', buttons: { cancel: { innerText: 'Cancel', className: 'cancel'}, custom: { innerText: 'Custom', className: 'default', callback: function () { alert('Custom'); } }    }});
+
+savvy.Dialog.create({
+	close: true, 
+	overlay: true, 
+	title: 'This is a Dialog Example!', 
+	content: 'You can put <b>HTML</b> tags into it and whatever!', 
+	buttons: { 
+		cancel: { 
+			innerText: 'Cancel', 
+			className: 'cancel', 
+			callback: function () { alert('Cancel'); }
+		}, 
+		confirm: { 
+			innerHTML: '<b>Confirm</b>', 
+			className: 'confirm', 
+			callback: function () { alert('Confirm'); }
+		}, 
+		custom: { 
+			innerText: 'Custom', 
+			className: 'default', 
+			callback: function () { alert('Custom'); } 
+		}    
+	}
+});
+
 */

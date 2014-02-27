@@ -65,6 +65,9 @@ core.Class("savvy.widget.Widget", {
 		},
 
 		update: function (model) {
+
+			console.info(this.constructor, 'update');
+
 			this.checkCreate();
 
 			var view = this.__view || null;
@@ -72,6 +75,8 @@ core.Class("savvy.widget.Widget", {
 		},
 
 		render: function () {
+
+			console.info(this.constructor, 'render');
 
 			this.checkCreate();
 
