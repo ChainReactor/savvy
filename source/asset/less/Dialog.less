@@ -20,6 +20,8 @@
 		max-width: 90%;
 		margin: 0 auto;
 		position: relative;
+		transform: translate3d(0,@remSize * 3,0);
+		transition: transform @speed-faster @easing-default;
 		text-align: center;
 		vertical-align: middle;
 	}
@@ -70,5 +72,9 @@
 
 	&.show {
 		opacity: 1;
+
+		.savvy-dialog {
+			transform: translate3d(0,0,0);
+		}
 	}
 }

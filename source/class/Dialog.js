@@ -68,9 +68,9 @@
 				}
 
 				data.callback = function () {
-					cb ? cb() : null;
-
-					self.destroy(id);
+					self.destroy(id, function () {
+						cb ? cb() : null;
+					});
 				};
 
 				savvy.Button.create(data);
@@ -111,7 +111,7 @@
 			__count ++;
 		},
 
-		destroy: function (id) {
+		destroy: function (id, cb) {
 			var overlay = __dialogs[id];
 
 			if (!overlay) {
@@ -121,6 +121,8 @@
 			savvy.Effects.transistion(overlay, function () {
 				overlay.parentNode ? overlay.parentNode.removeChild(overlay) : null;
 				__dialogs[id] = null;
+
+				cb ? cb() : null;
 			});
 
 			setTimeout(function () {
