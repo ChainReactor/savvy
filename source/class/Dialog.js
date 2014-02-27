@@ -113,6 +113,12 @@
 				return;
 			}
 
+
+			savvy.Effects.transistion(overlay, function () {
+				overlay.parentNode ? overlay.parentNode.removeChild(overlay) : null;
+				__dialogs[id] = null;
+			});
+
 			savvy.Dom.removeClass(overlay, 'show');
 		}
 	});
