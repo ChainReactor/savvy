@@ -88,7 +88,7 @@
 				for (b in buttons) {
 
 					button = buttons[b];
-					button.parentNode = button.parentNode || buttonContainer;
+					button.parentNode = buttonContainer;
 
 					if (b === 'cancel' ||
 						b === 'confirm') {
@@ -124,14 +124,14 @@
 
 			savvy.Effects.transistion(overlay, function () {
 				overlay.parentNode ? overlay.parentNode.removeChild(overlay) : null;
-				__dialogs[id] = null;
-
 				cb ? cb() : null;
 			});
 
 			setTimeout(function () {
 				savvy.Dom.removeClass(overlay, 'show');
 			}, 0);
+
+			__dialogs[id] = null;
 		}
 	});
 })(this);
