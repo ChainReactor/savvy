@@ -191,10 +191,11 @@ core.Class("savvy.widget.WidgetView", {
 
 				if (!element) {
 					tag = child.tag || 'div';
+
+					//Mebbe refactor? Simple class addition check for children.
 					clsName =	(className ? className : '') + 
 								(className && child.className ? ' ' : '') + 
 								(child.className || '');
-
 
 					element = savvy.Dom[tag]({
 						id: id,
@@ -218,7 +219,7 @@ core.Class("savvy.widget.WidgetView", {
 
 			for (c in children) {
 				child = children[c];
-				this.createChild(child.id || null, c, child, parent);
+				this.createChild(child.id || c, c, child, parent);
 			}
 		},
 
@@ -250,6 +251,7 @@ core.Class("savvy.widget.WidgetView", {
 				this.destroyChild(c, child);
 			}
 		},
+
 
 
 		//Privates (Kinda nasty things I shouldn't expose).

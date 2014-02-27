@@ -1,12 +1,13 @@
-(function () {
+(function (context) {
 
 	var __dialogs = {};
+	var __count = 0;
 
 	core.Module("savvy.Dialog", {
 		create: function (settings) {
 			var self = this;
 
-			var id = 'dialog_' + Date.now();
+			var id = 'dialog_' + __count;
 
 			var parent = settings.parentNode ? settings.parentNode : document.body;
 
@@ -107,7 +108,9 @@
 
 			__dialogs[id] = overlay;
 
+			__count ++;
 		},
+
 		destroy: function (id) {
 			var overlay = __dialogs[id];
 
@@ -125,7 +128,7 @@
 			}, 0);
 		}
 	});
-})();
+})(this);
 
 /*
 

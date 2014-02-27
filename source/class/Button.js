@@ -1,4 +1,5 @@
-(function () {
+(function (context) {
+
 	core.Module("savvy.Button", {
 		create: function (settings) {
 			var parentNode = settings.parentNode || null;
@@ -29,6 +30,7 @@
 				});
 
 			return button;
-		},
+		}
 	});
-})();
+
+})(this);
