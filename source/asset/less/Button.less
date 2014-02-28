@@ -14,30 +14,34 @@
 
 	&.default {
 		background-color: #666;
+		&.tapped {
+			background-color: darken(#666, 15%);
+		}
 	}
 
 	&.confirm {
 		background-color: #0F0;
+		&.tapped {
+			background-color: darken(#0F0, 15%);
+		}
 	}
 
 	&.cancel {
 		background-color: #F00;
+		&.tapped {
+			background-color: darken(#F00, 15%);
+		}
+	}
+
+	&.disabled {
+		background-color: #666;
+		color: #999;
+		pointer-events: none;
+		text-shadow: 0 -@remSize * 0.1 @remSize * 0.1 #333;
 	}
 
 	&.tapped {
 		transform: translate3d(0, @remSize * 0.5, 0);
-
-		&.default {
-			background-color: darken(#666, 15%);
-		}
-
-		&.confirm {
-			background-color: darken(#0F0, 15%);
-		}
-
-		&.cancel {
-			background-color: darken(#F00, 15%);
-		}
 	}
 
 }
