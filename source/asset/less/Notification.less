@@ -1,0 +1,33 @@
+.savvy-notification {
+	background: rgba(0,0,0,0.5);
+	height: auto;
+	left: 0;
+	opacity: 0;
+	pointer-events: all;
+	position: absolute;
+	text-align: center;
+	transition: opacity @speed-fast @easing-default;
+	right: 0;
+	width: 100%;
+	z-index: 6000;
+
+	.savvy-notification_content {
+		color: #FFF;
+		font-size: 200%;
+		padding: 2% 4%;
+	}
+
+	&.top {
+		bottom: auto;
+		top: @remSize * 4.4;
+	}
+
+	&.bottom {
+		bottom: @remSize * 4.4;
+		top: auto;
+	}
+
+	&.show {
+		opacity: 1;
+	}
+}
