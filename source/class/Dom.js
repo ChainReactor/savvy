@@ -1,15 +1,12 @@
 (function (context) {
 
 	core.Module('savvy.Dom', {
-		transform: function () {
-			
-		},
 		addClass: function (a, b) {
 			var c = a.className;
-			return -1 === (" " + c + " ").indexOf(" " + b + " ") && (a.className = c + (c ? " " : "") + b), a
+			return -1 === (" " + c + " ").indexOf(" " + b + " ") && (a.className = c + (c ? " " : "") + b), a;
 		},
 		removeClass: function (a, b) {
-			return a.className = (" " + a.className + " ").replace(" " + b + " ", " ").replace(/^\s+|\s+$/g, ""), a
+			return a.className = (" " + a.className + " ").replace(" " + b + " ", " ").replace(/^\s+|\s+$/g, ""), a;
 		},
 	});
 

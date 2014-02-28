@@ -1,5 +1,9 @@
 core.Class("savvy.widget.WidgetView", {
+	include: [savvy.common.Emitter],
+
 	construct: function (settings) {
+		savvy.common.Emitter.call(this)
+
 		savvy.widget.WidgetView.count += 1;
 
 		settings = settings || {};
@@ -198,7 +202,6 @@ core.Class("savvy.widget.WidgetView", {
 								(child.className || '');
 
 					element = savvy.Dom[tag]({
-						id: id,
 						className: clsName, 
 						parentNode: child.parentNode || parent
 					});

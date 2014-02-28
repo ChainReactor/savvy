@@ -38,9 +38,14 @@
 		color: #999;
 		pointer-events: none;
 		text-shadow: 0 -@remSize * 0.1 @remSize * 0.1 #333;
+
+		&.tapped {
+			background-color: #666;
+		}
 	}
 
-	&.tapped {
+	&.tapped,
+	&.active {
 		transform: translate3d(0, @remSize * 0.5, 0);
 	}
 

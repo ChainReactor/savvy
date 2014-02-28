@@ -1,5 +1,9 @@
 core.Class("savvy.widget.Widget", {
+	include: [savvy.common.Emitter],
+
 	construct: function (settings) {
+		savvy.common.Emitter.call(this)
+
 		savvy.widget.Widget.count += 1;
 
 		settings = settings || {};
@@ -162,8 +166,6 @@ core.Class("savvy.widget.Widget", {
 		unbind: function () {
 
 			console.info(this.constructor, 'unbind');
-
-			this.checkCreate();
 
 			if (!this.isBound()) {
 				return;
