@@ -1,9 +1,5 @@
 core.Class("savvy.widget.WidgetView", {
-	include: [savvy.common.Emitter],
-
 	construct: function (settings) {
-		savvy.common.Emitter.call(this)
-
 		savvy.widget.WidgetView.count += 1;
 
 		settings = settings || {};
@@ -129,6 +125,7 @@ core.Class("savvy.widget.WidgetView", {
 				return;
 			}
 
+			this.__bound = true;
 		},
 
 		unbind: function () {
@@ -137,6 +134,8 @@ core.Class("savvy.widget.WidgetView", {
 			if (!this.isBound()) {
 				return;
 			}
+
+			this.__bound = false;
 		},
 
 		//Updates the Model for Rendering
@@ -155,6 +154,9 @@ core.Class("savvy.widget.WidgetView", {
 			if (!element) {
 				if (settings.id) {
 					element = document.getElementById(settings.id);
+					if (element) {
+						savvy.Dom.addClass(element, settings.className);
+					}
 				}
 
 				if (!element) {
@@ -192,6 +194,7 @@ core.Class("savvy.widget.WidgetView", {
 			if (child) {
 
 				element = child.appendChild ? child : null;
+				parent = child.parentNode || parent;
 
 				if (!element) {
 					tag = child.tag || 'div';
@@ -201,10 +204,12 @@ core.Class("savvy.widget.WidgetView", {
 								(className && child.className ? ' ' : '') + 
 								(child.className || '');
 
-					element = savvy.Dom[tag]({
-						className: clsName, 
-						parentNode: child.parentNode || parent
-					});
+					element = (parent.getElementsByClassName && parent.getElementsByClassName(clsName)[0]) ? 
+						parent.getElementsByClassName(clsName)[0] :
+						savvy.Dom[tag]({
+							className: clsName, 
+							parentNode: parent
+						});
 				}
 
 				if (child.children && !child.appendChild) {
