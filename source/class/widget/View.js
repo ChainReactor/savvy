@@ -129,7 +129,6 @@ core.Class("savvy.widget.WidgetView", {
 		},
 
 		unbind: function () {
-			this.checkCreate();
 
 			if (!this.isBound()) {
 				return;
