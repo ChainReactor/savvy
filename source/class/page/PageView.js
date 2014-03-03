@@ -26,6 +26,15 @@ core.Class("savvy.page.PageView", {
 			if (!this.__content) {
 				this.__content = this.__element.getElementsByClassName("savvy-content")[0];
 			}
+
+			if (!this.__bottombar) {
+				this.__bottombar = this.__element.getElementsByClassName("savvy-bottombar")[0];
+			}
+		},
+
+		resize: function () {
+			savvy.widget.WidgetView.prototype.resize.call(this);
+
 		},
 
 		getTopbar: function () {
@@ -34,6 +43,10 @@ core.Class("savvy.page.PageView", {
 
 		getContent: function () {
 			return this.__content;
+		},
+
+		getBottomBar: function () {
+			return this.__bottombar;
 		}
 	}
 });

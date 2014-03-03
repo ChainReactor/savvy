@@ -34,6 +34,13 @@ core.Class("savvy.page.Page", {
 
 			var view = this.getView() || null;
 			return view && view.getContent ? view.getContent() : null;
+		},
+
+		getBottomBar: function () {
+			this.checkCreate();
+
+			var view = this.getView() || null;
+			return view && view.getBottomBar ? view.getBottomBar() : null;
 		}
 	}
 })

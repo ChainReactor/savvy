@@ -142,6 +142,10 @@ core.Class("savvy.widget.WidgetView", {
 			this.__model = savvy.Extend.recurse(this.__model, model);
 		},
 
+		resize: function () {
+
+		},
+
 		render: function () {
 			this.checkCreate();
 		},

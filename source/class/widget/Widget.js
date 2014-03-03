@@ -44,6 +44,7 @@ core.Class("savvy.widget.Widget", {
 			console.info(this.constructor, 'create');
 
 			if (this.__created) {
+				this.destroy();
 				return;
 			}
 
@@ -90,6 +91,8 @@ core.Class("savvy.widget.Widget", {
 
 		resize: function () {
 			this.checkCreate();
+
+			console.info(this.constructor, 'resize');
 
 			var view = this.__view || null;
 				view && view.resize ? view.resize() : null;
