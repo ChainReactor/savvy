@@ -25,6 +25,7 @@
 					parentNode: parentNode
 				});
 			} else {
+				id ? button.id = id : null;
 				innerText ? button.innerText = innerText : null;
 				innerHTML ? button.innerHTML = innerHTML : null;
 				className ? savvy.Dom.addClass(button, className) : null;

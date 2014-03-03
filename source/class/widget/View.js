@@ -210,6 +210,7 @@ core.Class("savvy.widget.WidgetView", {
 					element = (parent.getElementsByClassName && parent.getElementsByClassName(clsName)[0]) ? 
 						parent.getElementsByClassName(clsName)[0] :
 						savvy.Dom[tag]({
+							id : child.id ? child.id : null,
 							className: clsName, 
 							parentNode: parent
 						});
@@ -230,7 +231,7 @@ core.Class("savvy.widget.WidgetView", {
 
 			for (c in children) {
 				child = children[c];
-				this.createChild(child.id || c, c, child, parent);
+				this.createChild(c, c, child, parent);
 			}
 		},
 
