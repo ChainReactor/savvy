@@ -39,9 +39,9 @@
 				nY =		0,
 
 				distance = savvy.Platform.touch ? 60 : 30,
-				onTarget = true,
+				onTarget = true;
 
-				startFn = function (evt) {
+				element.__tapStart = function (evt) {
 					evt = self.normalize(evt),
 					sX = evt.pointerX,
 					sY = evt.pointerY;
@@ -51,9 +51,9 @@
 						onTarget = true;
 						target = evt.target;
 
-						document.body.addEventListener(savvy.Platform.pointer_move, moveFn);
-						document.body.addEventListener(savvy.Platform.pointer_end, endFn);
-						document.body.addEventListener("touchcancel", endFn);
+						document.body.addEventListener(savvy.Platform.pointer_move, element.__tapMove);
+						document.body.addEventListener(savvy.Platform.pointer_end, element.__tapEnd);
+						document.body.addEventListener("touchcancel", element.__tapEnd);
 
 						savvy.Dom.addClass(element, 'tapped');
 					} 
@@ -64,7 +64,7 @@
 
 				},
 
-				moveFn = function (evt) {
+				element.__tapMove = function (evt) {
 					evt = self.normalize(evt),
 
 					nX = evt.pointerX,
@@ -78,15 +78,15 @@
 					return false;
 				}, 
 
-				endFn = function (evt) {
+				element.__tapEnd = function (evt) {
 					evt = self.normalize(evt),
 					(evt.target === target && onTarget) ? 
 									endCb && endCb(evt) : 
 									cancelCb && cancelCb(evt);
 
-					document.body.removeEventListener(savvy.Platform.pointer_move, moveFn);
-					document.body.removeEventListener(savvy.Platform.pointer_end, endFn);
-					document.body.removeEventListener("touchcancel", endFn);
+					document.body.removeEventListener(savvy.Platform.pointer_move, element.__tapMove);
+					document.body.removeEventListener(savvy.Platform.pointer_end, element.__tapEnd);
+					document.body.removeEventListener("touchcancel", element.__tapEnd);
 
 					savvy.Dom.removeClass(element, 'tapped');
 
@@ -94,7 +94,7 @@
 				};
 
 			element = element.constructor === String ? document.getElementById(element) : element,
-			element.addEventListener(savvy.Platform.pointer_start, startFn);
+			element.addEventListener(savvy.Platform.pointer_start, element.__tapStart);
 
 			return element;
 		}
