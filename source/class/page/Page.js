@@ -43,4 +43,4 @@ core.Class("savvy.page.Page", {
 			return view && view.getBottomBar ? view.getBottomBar() : null;
 		}
 	}
-})
+});
