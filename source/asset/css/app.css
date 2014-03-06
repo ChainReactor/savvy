@@ -1,0 +1,52 @@
+/** 
+ * App.js v1.10.0
+ * Instant mobile web app creation
+ * Copyright (c) 2012 Kik Interactive, http://kik.com
+ * Released under the MIT license
+ *
+ * swapper.js 1.1.1
+ * UI navigation and transition utility
+ * Copyright (c) 2012 Kik Interactive, http://kik.com
+ * Released under the MIT license
+ *
+ * clickable.js v1.3.4
+ * Seamless buttons for mobile devices
+ * Copyright (c) 2012 Kik Interactive, http://kik.com
+ * Released under the MIT license
+ *
+ * dialog.js v1.1.0
+ * Modal dialogs for mobile web apps
+ * Copyright (c) 2012 Kik Interactive, http://kik.com
+ * Released under the MIT license
+ *
+ * scrollable.js v1.0.0
+ * Seamless scrolling for mobile devices
+ * Copyright (c) 2012 Kik Interactive, http://kik.com
+ * Released under the MIT license
+ *
+ * iScroll v4.1.6
+ * Copyright (c) 2011 Matteo Spinelli, http://cubiq.org
+ * Released under the MIT license
+ *
+ * Permission is hereby granted, free of charge, to any person
+ * obtaining a copy of this software and associated documentation
+ * files (the "Software"), to deal in the Software without
+ * restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following
+ * conditions:
+ *
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ */
+html,body,div,form,p,ul,li,span,label,img{margin:0;padding:0;outline:0}html,body{height:100%;width:100%}body{position:relative;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:none;-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-tap-highlight-color:rgba(0,0,0,0);overflow:hidden}.app-android{font-family:"Roboto",sans-serif}.app-no-scrollbar ::-webkit-scrollbar{height:0!important;width:0!important}.clear{clear:both}.app-clickblocker{z-index:9000;position:fixed;top:0;left:0;height:100%;width:100%;background:#FFF;opacity:0}.app-page{display:none;position:relative;height:100%;width:100%;overflow:hidden}.app-loaded .app-page{display:block}.app-topbar{z-index:3000;position:relative;height:44px;width:100%;background:#000;color:#FFF}.app-android .app-topbar{height:48px}.app-topbar .app-button{position:absolute;top:0;padding:0 8px;height:100%;line-height:44px}.app-android .app-topbar .app-button{line-height:48px}.app-topbar .app-button.left{left:0}.app-topbar .app-button.right{right:0}.app-topbar .app-title{margin:0 auto;height:100%;width:100%;line-height:44px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.app-android .app-topbar .app-title{line-height:48px}.app-content{z-index:2000;position:relative;background:#FFF}.app-scrollhack>*{-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0);-o-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}.app-section{position:relative;margin:8px;border:1px solid #AAA}.app-list{list-style:none}.app-list>li,.app-list>li.app-button{padding-left:20px;padding-right:8px;height:43px;border-bottom:1px solid #AAA;line-height:43px;overflow:hidden;text-align:left;text-overflow:ellipsis;white-space:nowrap}.app-android .app-list>li,.app-android .app-list>li.app-button{padding-top:2px;padding-bottom:2px}.app-section .app-list>li:last-child,.app-section .app-list>li.app-button:last-child{border-bottom:0}.app-list>label{display:block;padding-left:12px;height:24px;background:#000;color:#FFF;line-height:24px}.app-list>li+label{margin-top:-1px}.app-content .app-button{margin:0 auto;height:40px;border-bottom:1px solid #AAA;line-height:40px;overflow:hidden;text-align:center;text-overflow:ellipsis;white-space:nowrap}.app-button:last-child{border-bottom:0}.app-content .app-button.green{background:#7F7}.app-content .app-button.red{background:#F77}.app-content .app-button.blue{background:#77F}.app-input{position:relative;display:block;padding:10px 12px;width:100%;background:transparent;border:0;border-bottom:1px solid #AAA;outline:0;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;line-height:20px;-webkit-appearance:none}.app-section .app-input:last-child{border-bottom:0}.app-input,.app-input *{color:inherit;font-family:inherit;font-size:inherit}input.app-input{height:40px}textarea.app-input{height:80px;resize:none}.app-input input,.app-input textarea{display:inline-block;margin:0;padding:0;width:100%;background:0;border:0;outline:0;line-height:inherit;resize:none;-webkit-appearance:none}.app-input input{height:20px}.app-input textarea{height:60px}
