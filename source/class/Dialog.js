@@ -13,8 +13,18 @@
 
 			var overlay = savvy.Dom.div({
 				id: id,
-				className: 'savvy-overlay ' + (settings.overlay ? 'fade ' : '') + settings.overlay
+				className: 'savvy-overlay '
 			});
+
+			if (overlay && settings.overlay) {
+				if (typeof(settings.overlay) === "boolean") {
+					savvy.Dom.addClass(overlay, "fade")
+				}
+
+				if (typeof(settings.overlay) === "string") {
+					savvy.Dom.addClass(overlay, settings.overlay);
+				}
+			}
 
 			var dialog = savvy.Dom.div({
 				className: 'savvy-dialog ' + (settings.className ? settings.className : ''),
