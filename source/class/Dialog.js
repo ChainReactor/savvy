@@ -13,7 +13,7 @@
 
 			var overlay = savvy.Dom.div({
 				id: id,
-				className: 'savvy-overlay ' + (settings.overlay ? 'fade' : '')
+				className: 'savvy-overlay ' + (settings.overlay ? 'fade ' : '') + settings.overlay
 			});
 
 			var dialog = savvy.Dom.div({
