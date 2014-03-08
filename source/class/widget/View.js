@@ -211,7 +211,7 @@ core.Class("savvy.widget.WidgetView", {
 						parent.getElementsByClassName(clsName)[0] :
 						savvy.Dom[tag]({
 							id : child.id ? child.id : null,
-							className: clsName, 
+							className: clsName,
 							parentNode: parent
 						});
 				}

@@ -93,7 +93,9 @@
 					return false;
 				};
 
-			element = element.constructor === String ? document.getElementById(element) : element,
+			element = element.constructor === String ? document.getElementById(element) : element;
+
+			element.removeEventListener(savvy.Platform.pointer_start, element.__tapStart);
 			element.addEventListener(savvy.Platform.pointer_start, element.__tapStart);
 
 			return element;
