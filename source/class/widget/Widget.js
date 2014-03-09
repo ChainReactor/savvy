@@ -246,7 +246,7 @@ core.Class("savvy.widget.Widget", {
 
 			widget = widget || widgets[id];
 
-			if (widget) {
+			if (widget && widget.isCreated()) {
 				widget.destroy();
 			}
 
