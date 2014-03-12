@@ -59,7 +59,6 @@
 					} 
 
 					evt.preventDefault();
-
 					return false;
 
 				},
@@ -74,7 +73,6 @@
 								Math.abs(nY - sY) < distance) ? true : false,
 
 					evt.preventDefault();
-
 					return false;
 				}, 
 
@@ -89,7 +87,6 @@
 					document.body.removeEventListener("touchcancel", element.__tapEnd);
 
 					savvy.Dom.removeClass(element, 'tapped');
-
 					return false;
 				};
 

@@ -4,9 +4,9 @@
 
 	core.Module("savvy.Storage", 
 		{
-			create: function (key) {
+			create: function (key, cb) {
 				this.setKey(key);
-				this.load();
+				this.load(cb);
 			},
 
 			setKey: function (key) {
@@ -37,7 +37,7 @@
 				}
 			},
 
-			load: function () {
+			load: function (cb) {
 				var data = localStorage.getItem(__key) || {};
 
 				if (typeof(data) === 'string') {
@@ -45,6 +45,8 @@
 				}
 
 				__data = data;
+
+				cb ? cb() : null
 			},
 
 			save: function () {

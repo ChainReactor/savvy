@@ -87,6 +87,23 @@
 			};
 
 			var makeCustomButton = function (data) {
+				var cb = null;
+
+				if (data.callback) {
+					cb = data.callback;
+				}
+
+				data.callback = function () {
+					if (data.destroy) {
+						self.destroy(id, function () {
+							cb ? cb() : null;
+						});
+					} else {
+						cb ? cb() : null;
+					}
+					
+				};
+
 				savvy.Button.create(data);
 			};
 
