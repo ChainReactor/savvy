@@ -71,7 +71,7 @@
 			}
 		})(window),
 
-		transistion: (function (global) {
+		transition: (function (global) {
 			var prefix, 
 				vendorPrefix = {
 					transition: "transitionend",

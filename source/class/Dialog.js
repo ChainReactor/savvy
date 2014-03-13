@@ -149,7 +149,7 @@
 				return;
 			}
 
-			savvy.Effects.transistion(overlay, function () {
+			savvy.Effects.transition(overlay, function () {
 				overlay.parentNode ? overlay.parentNode.removeChild(overlay) : null;
 				cb ? cb() : null;
 			});

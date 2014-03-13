@@ -61,7 +61,7 @@
 				return;
 			}
 
-			savvy.Effects.transistion(notification, function () {
+			savvy.Effects.transition(notification, function () {
 				notification.parentNode ? notification.parentNode.removeChild(notification) : null;
 				cb ? cb() : null;
 			});
