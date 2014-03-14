@@ -50,6 +50,7 @@
 
 			__count ++;
 		},
+
 		get: function (id) {
 			return __notifications[id];
 		},

@@ -1,6 +1,24 @@
 (function (context) {
 
 	core.Module('savvy.Dom', {
+		getOffset: function (el) {
+			var x = 0;
+			var y = 0;
+			var w = 0;
+			var h = 0;
+
+			x = el.offsetLeft;
+			y = el.offsetTop;
+			w = el.offsetWidth; 
+			h = el.offsetHeight; 
+
+			while (el = el.offsetParent) {
+				x += el.offsetLeft;
+				y += el.offsetTop;
+			}
+
+			return {x: x, y: y, w: w, h: h};
+		},
 		addClass: function (a, b) {
 			var c = a.className;
 			return -1 === (" " + c + " ").indexOf(" " + b + " ") && (a.className = c + (c ? " " : "") + b), a;
