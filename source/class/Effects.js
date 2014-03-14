@@ -2,8 +2,6 @@
 
 	var __transforms = {};
 
-	var CANDO = true;
-
 	core.Module("savvy.Effects", {
 		getTransform: function (elem) {
 			var transform = __transforms[elem];
@@ -88,7 +86,7 @@
 				}
 			}
 
-			if (evt) {
+			if (evt && !savvy.Platform.badroid) {
 				return function (elem, callback) {
 					elem.removeEventListener(evt, elem.__transition);
 
@@ -126,7 +124,7 @@
 				}
 			}
 
-			if (evt) {
+			if (evt && !savvy.Platform.badroid) {
 				return function (elem, callback) {
 					elem.removeEventListener(evt, elem.__animation);
 					elem.__animation = function () {

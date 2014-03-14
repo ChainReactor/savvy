@@ -9,7 +9,9 @@
 				 !!ua.match(/iphone/i) || 
 				 !!ua.match(/ipod/i)),
 
-		android: !!ua.match('android')
+		android: !!ua.match('android'),
+
+		badroid: (ua.indexOf("android 2") > -1)
 	});
 
 	savvy.Platform.pointer_start = savvy.Platform.touch ? 'touchstart' : 'mousedown';
