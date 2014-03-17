@@ -23,6 +23,30 @@
 				"forever";
 		},
 
+		countdown: function (time) {
+			if (!time) {
+				return '';
+			}
+
+			time = new Date(time);
+			var now = new Date();
+			var count = ~~((time - now) / 1000);
+
+			if (count < 0) {
+				return '';
+			}
+
+			var s = ~~(count % 60);
+				count /= 60;
+			var m = ~~(count % 60);
+				count /= 60;
+			var h = ~~(count % 24);
+				count /= 24;
+			var d = ~~count;
+
+			return (h ? (h + 'h ') : '') + (m + 'm');
+		},
+
 		convert: function (time) {
 			var isoString = new Date(time).toISOString(),
 				prettyDate = this.pretty(isoString);
