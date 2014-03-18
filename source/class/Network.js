@@ -1,7 +1,7 @@
 (function (context) {
 
 	core.Module('savvy.Network', {
-		ajax: function (url, type, params, cb, error) {
+		ajax: function (url, type, params, cb, error, timeout) {
 			var xmlhttp;
 			var queryString = '';
 			var salt = '';
@@ -14,6 +14,11 @@
 
 			xmlhttp.onerror = function () {
 				error ? error(xmlhttp.responseText) : null;
+				return;
+			};
+
+			xmlhttp.ontimeout = function () {
+				timeout ? timeout(xmlhttp.responseText) : null;
 				return;
 			};
 
