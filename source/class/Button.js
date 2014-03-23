@@ -12,7 +12,7 @@
 			var button = settings.element ? settings.element : 
 				(id ? document.getElementById(id) : null);
 
-			var className = 'savvy-button ' + (settings.className ? settings.className : '');
+			var className = settings.className ? settings.className : '';
 			var innerText = settings.innerText ? settings.innerText : null;
 			var innerHTML =  settings.innerHTML ? settings.innerHTML : null;
 
@@ -30,6 +30,8 @@
 				innerHTML ? button.innerHTML = innerHTML : null;
 				className ? savvy.Dom.addClass(button, className) : null;
 			}
+
+			savvy.Dom.addClass(button, 'savvy-button');
 
 			var callback = settings.callback;
 

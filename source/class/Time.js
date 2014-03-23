@@ -52,5 +52,5 @@
 				prettyDate = this.pretty(isoString);
 			return prettyDate;
 		}
-	})
+	});
 })(this);

@@ -17,18 +17,7 @@
 
 			return evt;
 		},
-/*
-		tap: function (elem, cb) {
-			elem = elem.constructor === String ? document.getElementById(elem) : elem;
 
-			elem.addEventListener(savvy.Platform.pointer_start, function (evt) {
-				cb ? cb(evt) : null;
-
-				evt.preventDefault();
-				return false;
-			});
-		},
-*/
 		tap: function (element, startCb, endCb, cancelCb) {
 			var self =		this,
 				target =	null,
