@@ -193,6 +193,7 @@ core.Class("savvy.widget.WidgetView", {
 			var element = null;
 			var tag = null;
 			var clsName;
+			var settings = {};
 
 			if (child) {
 
@@ -207,13 +208,17 @@ core.Class("savvy.widget.WidgetView", {
 								(className && child.className ? ' ' : '') + 
 								(child.className || '');
 
+					settings.id = child.id || null;
+					settings.className = clsName;
+					settings.parentNode = parent;
+
+					settings = savvy.Extend.recurse(child, settings);
+					settings.children = null;
+					settings.tag = null;
+
 					element = (parent.getElementsByClassName && parent.getElementsByClassName(clsName)[0]) ? 
 						parent.getElementsByClassName(clsName)[0] :
-						savvy.Dom[tag]({
-							id : child.id ? child.id : null,
-							className: clsName,
-							parentNode: parent
-						});
+						savvy.Dom[tag](settings);
 				}
 
 				if (child.children && !child.appendChild) {
