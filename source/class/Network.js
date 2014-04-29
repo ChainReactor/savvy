@@ -43,7 +43,7 @@
 
 			xmlhttp.open(type,url,true);
 			xmlhttp.setRequestHeader("Content-type", "application/json; charset=utf-8");
-			xmlhttp.timeout = 5000;
+			xmlhttp.timeout = 10000;
 			xmlhttp.send();
 		}
 	});

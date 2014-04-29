@@ -50,11 +50,12 @@
 			},
 
 			save: function () {
+				var data = __data;
 				if (typeof(__data) === 'object') {
-					__data = JSON.stringify(__data);
+					data = JSON.stringify(__data);
 				}
 
-				localStorage.setItem(__key, __data);
+				localStorage.setItem(__key, data);
 			}
 		}
 	);
