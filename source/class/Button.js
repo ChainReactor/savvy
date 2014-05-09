@@ -33,17 +33,19 @@
 
 			savvy.Dom.addClass(button, 'savvy-button');
 
+			var start_callback = settings.start;
+			var cancel_callback = settings.cancel;
 			var callback = settings.callback;
 
 			savvy.Pointer.tap(button, 
 				function (e) {
-
+					start_callback ? start_callback(e) : null;
 				},
 				function (e) {
 					callback ? callback(e) : null;
 				},
 				function (e) {
-
+					cancel_callback ? cancel_callback(e) : null;
 				});
 
 			return button;

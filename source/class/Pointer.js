@@ -63,7 +63,6 @@
 								Math.abs(nY - sY) < distance) ? true : false,
 
 					evt.preventDefault();
-					evt.stopPropagation();
 					return false;
 				}, 
 
@@ -79,7 +78,6 @@
 
 					savvy.Dom.removeClass(element, 'tapped');
 					evt.preventDefault();
-					evt.stopPropagation();
 					return false;
 				};
 
