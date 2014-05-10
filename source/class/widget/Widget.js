@@ -10,9 +10,11 @@ core.Class("savvy.widget.Widget", {
 		settings.view = settings.view || {};
 		settings.widgets = settings.widgets || {};
 
-		this.__settings = savvy.Extend.recurse(this.defaults, settings, true);
-		this.__settings.view = savvy.Extend.recurse(this.defaults.view, settings.view);
-		this.__settings.widgets = savvy.Extend.recurse(this.defaults.widgets, settings.widgets);
+		var defaults = JSON.parse(JSON.stringify(this.defaults));
+
+		this.__settings = savvy.Extend.recurse(defaults, settings, true);
+		this.__settings.view = savvy.Extend.recurse(defaults.view, settings.view);
+		this.__settings.widgets = savvy.Extend.recurse(defaults.widgets, settings.widgets);
 
 		this.__widgets = {};
 		this.__resources = {};

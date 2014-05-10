@@ -5,8 +5,10 @@ core.Class("savvy.widget.WidgetView", {
 		settings = settings || {};
 		settings.children = settings.children || {};
 
-		this.__settings = savvy.Extend.recurse(this.defaults, settings, true);
-		this.__settings.children = savvy.Extend.recurse(this.defaults.children, settings.children);
+		var defaults = JSON.parse(JSON.stringify(this.defaults));
+
+		this.__settings = savvy.Extend.recurse(defaults, settings, true);
+		this.__settings.children = savvy.Extend.recurse(defaults.children, settings.children);
 
 		this.__children = {};
 		this.__model = {};
