@@ -15,6 +15,10 @@ core.Class("savvy.common.EventedResource", {
 				oldValue = this.get(key),
 				changed = savvy.common.Resource.prototype.set.call(this, key, value);
 
+			if (!value && value === changed) {
+				changed = true;
+			}
+
 			return changed && this.emit(events.RESOURCE_UPDATED, this.__createPropertyChangeEvent(key, oldValue, value)), changed;
 		},
 
