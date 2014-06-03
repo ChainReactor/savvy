@@ -79,4 +79,4 @@ core.Class("savvy.common.EventedResource", {
 
 savvy.common.EventedResource.fromJSON = function (model) {
 	return savvy.common.Resource.fromJSON.call(this, model);
-}
+};

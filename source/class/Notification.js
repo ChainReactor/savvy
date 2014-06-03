@@ -1,5 +1,6 @@
 (function (context) {
 	var __notifications = {};
+	var __listeners = {};
 	var __count = 0;
 
 	core.Module("savvy.Notification", {
@@ -34,6 +35,14 @@
 				cb = settings.callback;
 			}
 
+			if (settings.touchDestroys) {
+				__listeners[id] = function () {
+					self.destroy(id, cb);
+				};
+
+				document.body.addEventListener(savvy.Platform.pointer_end, __listeners[id]);
+			}
+
 			parent ? parent.appendChild(notification) : null;
 
 			setTimeout(function () {
@@ -52,14 +61,21 @@
 		},
 
 		get: function (id) {
-			return __notifications[id];
+			return __notifications[id] || __notifications;
 		},
 
 		destroy: function (id, cb) {
 			var notification = __notifications[id];
+			var listener = __listeners[id];
 
 			if (!notification) {
+				cb ? cb() : null;
 				return;
+			}
+
+			if (listener) {
+				document.body.removeEventListener(savvy.Platform.pointer_end, __listeners[id]);
+				delete __listeners[id];
 			}
 
 			savvy.Effects.transition(notification, function () {
@@ -68,6 +84,7 @@
 			});
 
 			setTimeout(function () {
+				savvy.Dom.addClass(notification, 'hiding');
 				savvy.Dom.removeClass(notification, 'show');
 			}, 0);
 
