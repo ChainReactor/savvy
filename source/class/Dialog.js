@@ -65,7 +65,7 @@
 					className: 'close',
 					parentNode: dialog,
 					callback: function () {
-						self.destroy(id);
+						self.destroy(id, settings.close_callback);
 					}
 				});
 			}
