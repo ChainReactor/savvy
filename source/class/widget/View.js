@@ -131,7 +131,6 @@ core.Class("savvy.widget.WidgetView", {
 		},
 
 		unbind: function () {
-
 			if (!this.isBound()) {
 				return;
 			}
@@ -157,6 +156,13 @@ core.Class("savvy.widget.WidgetView", {
 			var settings = this.__settings;
 
 			if (!element) {
+				if (settings.element) {
+					element = settings.element;
+					if (element) {
+						savvy.Dom.addClass(element, settings.className);
+					}
+				}
+
 				if (settings.id) {
 					element = document.getElementById(settings.id);
 					if (element) {

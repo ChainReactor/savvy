@@ -1,7 +1,7 @@
 (function (context) {
 
 	core.Module('savvy.Network', {
-		ajax: function (url, type, params, cb, error, timeout) {
+		ajax: function (url, type, params, cb, error, timeout, noSalt) {
 			var xmlhttp;
 			var queryString = '';
 			var salt = '';
@@ -23,9 +23,12 @@
 			};
 
 			xmlhttp.onreadystatechange = function () {
-				if (xmlhttp.readyState == 4 &&
-					xmlhttp.status == 200) {
-					cb ? cb(xmlhttp.responseText) : null;
+				if (xmlhttp.readyState == 4) {
+					if (xmlhttp.status == 200) {
+						cb ? cb(xmlhttp.responseText) : null;
+					} else if (xmlhttp.status == 404) {
+						error ? error(xmlhttp.responseText) : null;
+					}
 				}
 			};
 
@@ -37,13 +40,15 @@
 			}
 
 			//Add Salt
-			url.indexOf('?') !== -1 ? salt += '&salt=' : salt += '?salt=';
-			salt += +new Date();
-			url += salt;
-
+			if (!noSalt) {
+				url.indexOf('?') !== -1 ? salt += '&salt=' : salt += '?salt=';
+				salt += +new Date();
+				url += salt;
+			}
+			
 			xmlhttp.open(type,url,true);
 			xmlhttp.setRequestHeader("Content-type", "application/json; charset=utf-8");
-			xmlhttp.timeout = 10000;
+			xmlhttp.timeout = 15000;
 			xmlhttp.send();
 		}
 	});
