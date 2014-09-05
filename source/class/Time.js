@@ -42,9 +42,9 @@
 				count /= 60;
 			var h = ~~(count % 24);
 				count /= 24;
-			var d = ~~count;
+			var d = ~~(count % 7);
 
-			return (h ? (h + 'h ') : '') + (m + 'm');
+			return (d ? (d + 'd ') : '') + (h ? (h + 'h ') : '') + (m + 'm');
 		},
 
 		convert: function (time) {
