@@ -352,7 +352,9 @@ core.Class("savvy.widget.Widget", {
 				evt = events[e];
 				handler = handlers[e];
 
-				resource.addListener(evt, handler, this);
+				if (handler) {
+					resource.addListener(evt, handler, this);
+				}
 			}
 		},
 

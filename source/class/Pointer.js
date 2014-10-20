@@ -5,7 +5,7 @@
 			if (evt.__normalized) return evt;
 
 			if (savvy.Platform.touch) {
-				var firstTouch = ("touchend" === evt.type ? evt.changedTouches : evt.touches)[0];
+				var firstTouch = (("touchend" === evt.type || "touchcancel" === evt.type) ? evt.changedTouches : evt.touches)[0];
 				evt.pointerX = firstTouch.pageX;
 				evt.pointerY = firstTouch.pageY;
 			} else {
